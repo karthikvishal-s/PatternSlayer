@@ -10,9 +10,11 @@ function App() {
       <Routes>
         <Route path='/' element={<Home/>} />
         <Route path='activity' element={<Activity/>} />
+        
       </Routes>
     </Router>
   )
 }
 
 export default App
+
