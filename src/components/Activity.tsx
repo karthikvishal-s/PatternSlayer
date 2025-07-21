@@ -1,4 +1,4 @@
-import React from 'react'
+
 
 const list1 = [{
     Question:"101010",
@@ -17,7 +17,7 @@ const list1 = [{
 const RandomIndex = Math.floor(Math.random() * list1.length);
 const elements=[];
 for(let i=0;i<4;i++){
-    elements.push(<h1 key={i}>My name is {}</h1>);
+    elements.push(<h1 key={i}>My name is</h1>);
 
 
 }
