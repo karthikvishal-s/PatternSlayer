@@ -4,18 +4,22 @@ const Home = () => {
   return (
     <div>
         <div>
-            <h1>Welcome</h1>
-            <p>This is the home page of our React application.</p>
-            <p>Click the link below to navigate to the Activity page.</p>
-
-        </div>
+            <h1 className='text-4xl'>Hello </h1>
+       </div>
 
 
 
 
-      <Link to='/activity'>
-      Click to go to Activity
-      </Link>
+     
+
+      <img src="/src/assets/4kids.jpg" alt="Placeholder" className='mt-4' />
+
+      <div className='flex flex-col items-center justify-center mt-4'>
+      <Link to='/activity' className='text-center block mt-4 text-center bg-blue-500 text-white p-2 rounded hover:bg-blue-600 transition-colors w-40'>
+      <h1 className='border'>Start Game</h1>
+      </Link> 
+      </div>
+
     </div>
   )
 }
