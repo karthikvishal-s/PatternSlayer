@@ -12,7 +12,7 @@ const Home = () => {
 
      
 
-      <img src="/src/assets/4kids.jpg" alt="Placeholder" className='mt-4' />
+      <img src="/4kids.jpg" alt="Placeholder" className='mt-4' />
 
       <div className='flex flex-col items-center justify-center mt-4'>
       <Link to='/activity' className='text-center block mt-4 text-center bg-blue-500 text-white p-2 rounded hover:bg-blue-600 transition-colors w-40'>
