@@ -75,7 +75,7 @@ const Activity = () => {
 
     setTimeout(() => {
       setFeedback("");
-      if (current + 1 < 10) {
+      if (current + 1 < 8) {
         setCurrent(current + 1);
       } else {
         setShowResult(true);
@@ -97,13 +97,13 @@ const Activity = () => {
           <h2 className="text-3xl font-bold text-green-600 mb-2">
             🌟 You are brilliant! 🌟
           </h2>
-          <p className="text-xl">🎯 Final Score: {score} / 10</p>
+          <p className="text-xl">🎯 Final Score: {score} / 8</p>
           <p className="text-lg mt-2">🏆 Keep practicing!</p>
         </div>
       ) : (
         <div className="text-center">
           <h2 className="text-xl text-blue-600 font-semibold">
-            Question {current + 1} of 10
+            Question {current + 1} of 8
           </h2>
 
           <h3 className="text-3xl mt-4 mb-6">
