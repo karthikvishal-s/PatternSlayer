@@ -1,16 +1,15 @@
 import { useState } from "react";
 import BackButton from "./BackButton";
 
-// Define the type for each question
+
 type QuestionType = {
   Question: string;
   options: string[];
   answer: string;
 };
 
-// Array of 5 math and 5 emoji-based questions
 const questions: QuestionType[] = [
-  // Math Questions
+
   {
     Question: "2, 4, 6, ?",
     options: ["7", "8", "9", "10"],
@@ -36,26 +35,17 @@ const questions: QuestionType[] = [
     options: ["60", "70", "75", "85"],
     answer: "70",
   },
-  // Emoji Questions
+  
   {
     Question: "🔴 🟠 🟡 🟢 ?",
     options: ["🔵", "🟣", "⚪", "🟤"],
     answer: "🔵",
   },
-  {
-    Question: "🐶 🐱 🐭 🐹 ?",
-    options: ["🐰", "🦊", "🐻", "🐸"],
-    answer: "🐰",
-  },
+
   {
     Question: "⭐️ 🌟 💫 ✨ ?",
     options: ["🌠", "🌈", "🎇", "🌙"],
     answer: "🌠",
-  },
-  {
-    Question: "🎈 🎈 🎈 🎉 ?",
-    options: ["🎊", "🎂", "🎁", "🎇"],
-    answer: "🎊",
   },
   {
     Question: "🐣 🐥 🐤 🐓 ?",
@@ -64,7 +54,7 @@ const questions: QuestionType[] = [
   },
 ];
 
-// Shuffle the questions
+
 const shuffledQuestions = questions.sort(() => 0.5 - Math.random());
 
 const Activity = () => {
@@ -78,9 +68,9 @@ const Activity = () => {
 
     if (isCorrect) {
       setScore(score + 1);
-      setFeedback("🎉 Good job!");
+      setFeedback("Good job!");
     } else {
-      setFeedback("❌ Oops! Try the next one!");
+      setFeedback("Oops! Try the next one!");
     }
 
     setTimeout(() => {
@@ -94,10 +84,12 @@ const Activity = () => {
   };
 
   return (
-    <div className="min-h-screen bg-yellow-50 p-6 font-sans">
+    <div className="min-h-screen  pd-20 w-full font-sans">
+      <div className="flex justify-between  p-4 ">
       <BackButton />
+      </div>
       <h1 className="text-center text-4xl font-bold text-orange-500 mb-6">
-        🧠 Find the Pattern 🎨
+         Find the Pattern 
       </h1>
 
       {showResult ? (
