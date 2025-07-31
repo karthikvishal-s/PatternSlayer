@@ -102,15 +102,15 @@ const Activity = () => {
         </div>
       ) : (
         <div className="text-center">
-          <h2 className="text-xl text-blue-600 font-semibold">
+          <h2 className="text-xl text-blue-600 font-semibold mt-30">
             Question {current + 1} of 8
           </h2>
 
-          <h3 className="text-3xl mt-4 mb-6">
+          <h3 className="text-3xl mt-24 mb-6">
             {shuffledQuestions[current].Question}
           </h3>
 
-          <div className="flex flex-wrap justify-center gap-4">
+          <div className="flex flex-wrap justify-center gap-4 mt-20" >
             {shuffledQuestions[current].options.map((option, index) => (
               <button
                 key={index}
@@ -123,7 +123,7 @@ const Activity = () => {
           </div>
 
           {feedback && (
-            <p className="mt-6 text-2xl font-semibold text-purple-600 animate-bounce">
+            <p className="mt-26 text-2xl font-semibold text-purple-600 animate-bounce mb-20">
               {feedback}
             </p>
           )}
