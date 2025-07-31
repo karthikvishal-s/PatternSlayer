@@ -1,3 +1,4 @@
+import BackButton from "./BackButton";
 
 
 const list1 = [{
@@ -26,6 +27,8 @@ const Activity = () => {
   return (
     <div>
       Activity
+
+      <BackButton/>
 
       <div>
         Questions:
