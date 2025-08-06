@@ -74,14 +74,14 @@ const Activity = () => {
   };
 
   return (
-    <div className="min-h-screen w-full font-sans bg-gradient-to-br from-yellow-100 via-pink-100 to-blue-200">
+    <div className="min-h-screen w-full font-sans bg-black">
       <div className="flex justify-between p-4">
         <BackButton />
       </div>
 
       {!selectedLevel ? (
-        <div className="text-center mt-20 px-4">
-        <h2 className="text-4xl font-bold mb-10 text-red-600 tracking-widest drop-shadow">
+        <div className="text-center mt-0 px-4">
+        <h2 className="text-4xl font-bold mb-10 text-red-600  drop-shadow">
           Choose Your Path, Slayer!
         </h2>
       
@@ -89,12 +89,12 @@ const Activity = () => {
           {/* Easy - Tanjiro */}
           <div
             onClick={() => selectLevel('easy')}
-            className="cursor-pointer bg-green-100 hover:scale-105 transform transition-all duration-300 rounded-xl overflow-hidden shadow-lg"
+            className="mt-10 cursor-pointer bg-green-100 h-200 hover:scale-105 transform transition-all duration-300 rounded-xl overflow-hidden shadow-lg"
           > 
             <img
               src="/images/tanjiro.jpg"
               alt="Tanjiro - Easy"
-              className="w-full h-64 object-cover"
+              className="w-full h-154 object-cover"
             />
             <div className="p-4">
               <h3 className="text-2xl font-bold text-green-700">🟢 Easy</h3>
@@ -105,12 +105,12 @@ const Activity = () => {
           {/* Medium - Zenitsu/Inosuke */}
           <div
             onClick={() => selectLevel('medium')}
-            className="cursor-pointer bg-yellow-100 hover:scale-105 transform transition-all duration-300 rounded-xl overflow-hidden shadow-lg"
+            className="mt-10 cursor-pointer bg-yellow-100 hover:scale-105 transform transition-all duration-300 rounded-xl overflow-hidden shadow-lg"
           >
             <img
               src="/images/zenitsu.jpg"
               alt="Zenitsu - Medium"
-              className="w-full h-64 object-cover"
+              className="w-full h-154 object-cover"
             />
             <div className="p-4">
               <h3 className="text-2xl font-bold text-yellow-700">🟡 Medium</h3>
@@ -121,12 +121,12 @@ const Activity = () => {
           {/* Hard - Hashira */}
           <div
             onClick={() => selectLevel('hard')}
-            className="cursor-pointer bg-red-100 hover:scale-105 transform transition-all duration-300 rounded-xl overflow-hidden shadow-lg"
+            className="mt-10 cursor-pointer bg-red-100 hover:scale-105 transform transition-all duration-300 rounded-xl overflow-hidden shadow-lg"
           >
             <img
               src="/images/hashira.jpg"
               alt="Hashira - Hard"
-              className="w-full h-64 object-cover"
+              className="w-full h-154 object-cover"
             />
             <div className="p-4">
               <h3 className="text-2xl font-bold text-red-700">🔴 Hard</h3>
