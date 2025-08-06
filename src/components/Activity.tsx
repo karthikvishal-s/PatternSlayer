@@ -84,7 +84,8 @@ const Activity = () => {
   };
 
   return (
-    <div className="min-h-screen  pd-20 w-full font-sans">
+    <div className="min-h-screen w-full font-sans bg-gradient-to-br from-yellow-100 via-pink-100 to-blue-200">
+
       <div className="flex justify-between  p-4 ">
       <BackButton />
       </div>

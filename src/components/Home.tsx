@@ -1,10 +1,18 @@
-import { Link } from 'react-router-dom';
+// Home.tsx
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
 const Home = () => {
+  const navigate = useNavigate();
+  const [difficulty, setDifficulty] = useState('easy');
+
+  const startGame = () => {
+    navigate(`/activity/${difficulty}`);
+  };
+
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-yellow-100 via-pink-100 to-blue-100 px-4 text-center overflow-hidden">
-
       <motion.h1
         initial={{ opacity: 0, y: -40 }}
         animate={{ opacity: 1, y: 0 }}
@@ -36,13 +44,24 @@ const Home = () => {
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.5, duration: 0.5 }}
+        className="flex flex-col items-center space-y-4"
       >
-        <Link
-          to="/activity"
+        <select
+          value={difficulty}
+          onChange={(e) => setDifficulty(e.target.value)}
+          className="text-lg rounded-full px-6 py-2 border-2 border-pink-400 focus:outline-none focus:ring-2 focus:ring-pink-300"
+        >
+          <option value="easy">🟢 Easy</option>
+          <option value="medium">🟡 Medium</option>
+          <option value="hard">🔴 Hard</option>
+        </select>
+
+        <button
+          onClick={startGame}
           className="bg-gradient-to-r from-pink-400 to-purple-500 hover:from-pink-500 hover:to-purple-600 text-white px-8 py-4 rounded-full text-xl font-bold shadow-lg transform hover:scale-105 transition-all duration-300"
         >
-          🚀 Let’s Play!
-        </Link>
+          🚀 Start Game
+        </button>
       </motion.div>
 
       <motion.div
