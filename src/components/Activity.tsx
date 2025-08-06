@@ -81,8 +81,8 @@ const Activity = () => {
 
       {!selectedLevel ? (
        <div className="text-center mt-0 px-4">
-       <h2 className="text-4xl font-bold mb-10 text-red-600 drop-shadow">
-         Choose Your Path, Slayer!
+       <h2 className="text-4xl font-bold mb-10 text-red-800 drop-shadow">
+         Choose Your Difficulty level
        </h2>
      
        <div className="grid grid-cols-1 md:grid-cols-3 gap-18 max-w-294 mx-auto">
