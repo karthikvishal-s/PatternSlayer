@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 
 const Home = () => {
   const navigate = useNavigate();
-  const [difficulty, setDifficulty] = useState('easy');
+  
 
   const startGame = () => {
     navigate(`/activity`);
