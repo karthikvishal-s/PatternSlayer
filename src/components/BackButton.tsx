@@ -8,7 +8,7 @@ const BackButton = () => {
       
    
         <Link to="/">
-        <ArrowLeft className='inline mr-2' />
+        <ArrowLeft className='inline mr-2 text-white' />
         </Link>
      
     </div>
