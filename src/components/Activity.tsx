@@ -143,13 +143,59 @@ const Activity = () => {
      </div>
      
       
-      ) : showResult ? (
-        <div className="text-center mt-20">
-          <h2 className="text-3xl font-bold text-green-600 mb-2">🌟 You are brilliant! 🌟</h2>
-          <p className="text-xl">🎯 Final Score: {score} / {questions.length}</p>
-          <p className="text-lg mt-2">🏆 Keep practicing!</p>
-        </div>
-      ) : (
+      ) : showResult ?(
+        <div className="text-center mt-20 text-white">
+          <h2 className="text-4xl font-extrabold mb-6 text-red-500 drop-shadow-lg">Your Results</h2>
+          <p className="text-2xl mb-4">
+            🎯 Final Score: <span className="text-yellow-400">{score}</span> / {questions.length}
+          </p>
+      
+          <div className="mt-8 text-3xl">
+            {(() => {
+              const percent = (score / questions.length) * 100;
+              if (percent >= 90) {
+                return (
+                  <>
+                    👑 <span className="text-pink-500 font-bold">You can easily Muzan Kibutsuji!</span> 🩸<br />
+                    <span className="text-lg text-gray-300">The Demon King falls before your brilliance.</span>
+                  </>
+                );
+              } else if (percent >= 70) {
+                return (
+                  <>
+                    🔥 <span className="text-orange-400 font-bold">You can defeat an Upper Moon demon!</span> 👺<br />
+                    <span className="text-lg text-gray-300">You're Hashira-level strong!</span>
+                  </>
+                );
+              } else if (percent >= 50) {
+                return (
+                  <>
+                    💀 <span className="text-green-400 font-bold">You can defeat a Lower Moon demon!</span> 👹<br />
+                    <span className="text-lg text-gray-300">You’re growing stronger.</span>
+                  </>
+                );
+              } else if (percent >= 30) {
+                return (
+                  <>
+                    🧟 <span className="text-yellow-300 font-bold">You can  beat a weak demon!</span><br />
+                    <span className="text-lg text-gray-300">Keep training like Tanjiro!</span>
+                  </>
+                );
+              } else {
+                return (
+                  <>
+                    😵 <span className="text-red-400 font-bold">You were defeated!</span><br />
+                    <span className="text-lg text-gray-300">Try again, young slayer.</span>
+                  </>
+                );
+              }
+            })()}
+
+
+          </div>
+        </div>)
+     : (
+      
         <div className="text-center">
           <h1 className="text-4xl font-bold text-orange-500 mb-4">
             Find the Pattern ({selectedLevel.toUpperCase()} Mode)
@@ -157,7 +203,7 @@ const Activity = () => {
           <h2 className="text-xl text-blue-600 font-semibold">
             Question {current + 1} of {questions.length}
           </h2>
-          <h3 className="text-3xl mt-16 mb-6">{questions[current].Question}</h3>
+          <h3 className="text-3xl mt-16 mb-6 text-white">{questions[current].Question}</h3>
 
           <div className="grid grid-cols-2 gap-12 place-items-center mt-12 px-4 sm:px-0">
             {questions[current].options.map((option, index) => (
