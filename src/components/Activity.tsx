@@ -156,7 +156,7 @@ const Activity = () => {
               if (percent >= 90) {
                 return (
                   <>
-                    👑 <span className="text-pink-500 font-bold">You can easily Muzan Kibutsuji!</span> 🩸<br />
+                    👑 <span className="text-pink-500 font-bold">You can easily defeat Muzan Kibutsuji!</span> 🩸<br />
                     <span className="text-lg text-gray-300">The Demon King falls before your brilliance.</span>
                   </>
                 );
