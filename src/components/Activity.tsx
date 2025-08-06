@@ -110,17 +110,23 @@ const Activity = () => {
             {shuffledQuestions[current].Question}
           </h3>
 
-          <div className="flex flex-wrap justify-center gap-4 mt-20" >
-            {shuffledQuestions[current].options.map((option, index) => (
-              <button
-                key={index}
-                onClick={() => handleAnswer(option)}
-                className="bg-yellow-300 hover:bg-yellow-400 text-black px-6 py-3 rounded-xl border-2 border-yellow-600 shadow-md text-xl transition-all duration-200"
-              >
-                {option}
-              </button>
-            ))}
-          </div>
+          <div className="grid grid-cols-2 gap-16 place-items-center mt-20 px-4 sm:px-0">
+  {shuffledQuestions[current].options.map((option, index) => (
+    <button
+      key={index}
+      onClick={() => handleAnswer(option)}
+      className="w-[150px] h-[150px] sm:w-[180px] sm:h-[180px] md:w-[400px] md:h-[200px] 
+                 bg-yellow-300 hover:bg-yellow-400 text-black 
+                 text-4xl sm:text-5xl md:text-6xl 
+                 rounded-xl border-4 border-yellow-600 
+                 shadow-lg transition-all duration-200 
+                 flex items-center justify-center"
+    >
+      {option}
+    </button>
+  ))}
+</div>
+
 
           {feedback && (
             <p className="mt-26 text-2xl font-semibold text-purple-600 animate-bounce mb-20">
