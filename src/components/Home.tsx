@@ -31,9 +31,9 @@ const Home = () => {
           initial={{ opacity: 0, y: -40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-2xl sm:text-5xl md:text-4xl font-extrabold text-red-700 drop-shadow mb-4 relative -top-70"
+          className="text-2xl sm:text-5xl md:text-4xl font-extrabold text-white drop-shadow mb-4 relative -top-70"
         >
-          <p>Pattern Guess Game</p>
+          <p>Guess The Pattern</p>
           
         </motion.h1>
 
@@ -43,7 +43,7 @@ const Home = () => {
           transition={{ delay: 0.2, duration: 0.6 }}
           className="text-lg sm:text-xl text-red-200 max-w-xl mb-6 relative -top-70"
         >
-          Demon Slayer Edition
+          (Demon Slayer Edition)
         </motion.p>
 
         <motion.p
@@ -52,7 +52,7 @@ const Home = () => {
           transition={{ delay: 0.2, duration: 0.6 }}
           className="text-lg sm:text-xl text-gray-200 max-w-xl mb-6 relative -top-70"
         >
-          🧠 Guess the right pattern and become a ⭐ Pattern Master! 🎈
+          🧠 Train your brain, spot the pattern, and shine like the unique star you are! 💫
         </motion.p>
 
         <motion.div
