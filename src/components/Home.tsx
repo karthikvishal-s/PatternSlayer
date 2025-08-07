@@ -63,7 +63,7 @@ const Home = () => {
         >
           <button
             onClick={startGame}
-            className="relative -top-70 bg-black bg-opacity-70 text-white px-8 py-4 rounded-full text-xl font-bold shadow-lg transform hover:scale-110 transition-all duration-300 border"
+            className="relative -top-70 bg-red-400 bg-opacity-70 text-white px-8 py-4 rounded-full text-xl font-bold shadow-lg transform hover:scale-110 transition-all duration-300 border"
           >
             Start Game
           </button>
