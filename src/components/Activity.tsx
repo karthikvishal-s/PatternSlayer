@@ -55,11 +55,22 @@ const Activity = () => {
   const [score, setScore] = useState(0);
   const [feedback, setFeedback] = useState('');
   const [showResult, setShowResult] = useState(false);
+  const [questionCount, setQuestionCount] = useState(10);
+  const [showSlider, setShowSlider] = useState(false);
 
   const selectLevel = (level: Level) => {
     setSelectedLevel(level);
-    const randomQuestions = [...questionSets[level]].sort(() => 0.5 - Math.random()).slice(0, 10);
-    setQuestions(randomQuestions);
+    setShowSlider(true);
+  };
+
+  const startQuiz = () => {
+    if (selectedLevel) {
+      const randomQuestions = [...questionSets[selectedLevel]]
+        .sort(() => 0.5 - Math.random())
+        .slice(0, questionCount);
+      setQuestions(randomQuestions);
+      setShowSlider(false);
+    }
   };
 
   const handleAnswer = (selected: string) => {
@@ -80,76 +91,92 @@ const Activity = () => {
       </div>
 
       {!selectedLevel ? (
-       <div className="text-center mt-0 px-4">
-       <h2 className="text-4xl font-bold mb-10 text-red-800 drop-shadow">
-         Choose Your Difficulty level
-       </h2>
-     
-       <div className="grid grid-cols-1 md:grid-cols-3 gap-18 max-w-294 mx-auto">
-         {/* Easy - Zenitsu */}
-         <div
-           onClick={() => selectLevel('easy')}
-           className="mt-10 cursor-pointer  hover:scale-105 transform transition-all duration-300 rounded-xl overflow-hidden shadow-lg group relative"
-         >
-           <div className="relative">
-             <img
-               src="/zenitsu.jpeg"
-               alt="Zenitsu - Easy"
-               className="w-full h-184 object-cover transition duration-300 group-hover:brightness-35"
-             />
-             <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-               <span className="text-green-500 text-5xl font-bold drop-shadow-lg">Easy</span>
-             </div>
-           </div>
-          
-         </div>
-     
-         {/* Medium - Stone */}
-         <div
-           onClick={() => selectLevel('medium')}
-           className="mt-10 cursor-pointer bg-black hover:scale-105 transform transition-all duration-300 rounded-xl overflow-hidden shadow-lg group relative"
-         >
-           <div className="relative">
-             <img
-               src="/stone.jpeg"
-               alt="Stone - Medium"
-               className="w-full h-184 object-cover transition duration-300 group-hover:brightness-35"
-             />
-             <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-               <span className="text-yellow-500 text-5xl font-bold drop-shadow-lg">Medium</span>
-             </div>
-           </div>
-           
-         </div>
-     
-         {/* Hard - Yoriichi */}
-         <div
-           onClick={() => selectLevel('hard')}
-           className="mt-10 cursor-pointer  hover:scale-105 transform transition-all duration-300 rounded-xl overflow-hidden shadow-lg group relative"
-         >
-           <div className="relative">
-             <img
-               src="/yoriichi.jpeg"
-               alt="Yoriichi - Hard"
-               className="w-full h-184 object-cover transition duration-300 group-hover:brightness-35"
-             />
-             <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-               <span className="text-blue-500 text-5xl font-bold drop-shadow-lg"> Hard</span>
-             </div>
-           </div>
- 
-         </div>
-       </div>
-     </div>
-     
-      
-      ) : showResult ?(
+        <div className="text-center mt-0 px-4">
+          <h2 className="text-4xl font-bold mb-10 text-red-800 drop-shadow">
+            Choose Your Difficulty level
+          </h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-18 max-w-294 mx-auto">
+            <div
+              onClick={() => selectLevel('easy')}
+              className="mt-10 cursor-pointer hover:scale-105 transform transition-all duration-300 rounded-xl overflow-hidden shadow-lg group relative"
+            >
+              <div className="relative">
+                <img
+                  src="/zenitsu.jpeg"
+                  alt="Zenitsu - Easy"
+                  className="w-full h-184 object-cover transition duration-300 group-hover:brightness-35"
+                />
+                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <span className="text-green-500 text-5xl font-bold drop-shadow-lg">Easy</span>
+                </div>
+              </div>
+            </div>
+
+            <div
+              onClick={() => selectLevel('medium')}
+              className="mt-10 cursor-pointer hover:scale-105 transform transition-all duration-300 rounded-xl overflow-hidden shadow-lg group relative"
+            >
+              <div className="relative">
+                <img
+                  src="/stone.jpeg"
+                  alt="Stone - Medium"
+                  className="w-full h-184 object-cover transition duration-300 group-hover:brightness-35"
+                />
+                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <span className="text-yellow-500 text-5xl font-bold drop-shadow-lg">Medium</span>
+                </div>
+              </div>
+            </div>
+
+            <div
+              onClick={() => selectLevel('hard')}
+              className="mt-10 cursor-pointer hover:scale-105 transform transition-all duration-300 rounded-xl overflow-hidden shadow-lg group relative"
+            >
+              <div className="relative">
+                <img
+                  src="/yoriichi.jpeg"
+                  alt="Yoriichi - Hard"
+                  className="w-full h-184 object-cover transition duration-300 group-hover:brightness-35"
+                />
+                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <span className="text-blue-500 text-5xl font-bold drop-shadow-lg">Hard</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      ) : showSlider ? (
+        <div className="text-center text-white mt-16 px-4">
+          <h2 className="text-3xl font-bold text-yellow-400 mb-6 drop-shadow-lg">How many questions?</h2>
+
+          <input
+            type="range"
+            min={3}
+            max={10}
+            value={questionCount}
+            onChange={(e) => setQuestionCount(Number(e.target.value))}
+            className="w-2/3 md:w-1/3 h-3 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-yellow-500"
+          />
+
+          <p className="mt-4 text-xl font-semibold text-blue-400">
+            Selected: <span className="text-yellow-300">{questionCount}</span> questions
+          </p>
+
+          <button
+            onClick={startQuiz}
+            className="mt-8 px-8 py-3 bg-green-600 hover:bg-green-500 text-white font-bold text-xl rounded-xl shadow-lg transition-all duration-300"
+          >
+            Start Quiz
+          </button>
+        </div>
+      ) : showResult ? (
         <div className="text-center mt-20 text-white">
           <h2 className="text-4xl font-extrabold mb-6 text-red-500 drop-shadow-lg">Your Results</h2>
           <p className="text-2xl mb-4">
             🎯 Final Score: <span className="text-yellow-400">{score}</span> / {questions.length}
           </p>
-      
+
           <div className="mt-8 text-3xl">
             {(() => {
               const percent = (score / questions.length) * 100;
@@ -177,7 +204,7 @@ const Activity = () => {
               } else if (percent >= 30) {
                 return (
                   <>
-                    🧟 <span className="text-yellow-300 font-bold">You can  beat a weak demon!</span><br />
+                    🧟 <span className="text-yellow-300 font-bold">You can beat a weak demon!</span><br />
                     <span className="text-lg text-gray-300">Keep training like Tanjiro!</span>
                   </>
                 );
@@ -190,27 +217,24 @@ const Activity = () => {
                 );
               }
             })()}
-
-
           </div>
-        </div>)
-     : (
-      
+        </div>
+      ) : (
         <div className="text-center">
           <h1 className="text-4xl font-bold text-orange-500 mb-4">
-            Find the Pattern ({selectedLevel.toUpperCase()} Mode)
+            Find the Pattern ({selectedLevel?.toUpperCase()} Mode)
           </h1>
           <h2 className="text-xl text-blue-600 font-semibold">
             Question {current + 1} of {questions.length}
           </h2>
-          <h3 className="text-3xl mt-16 mb-6 text-white">{questions[current].Question}</h3>
+          <h3 className="text-5xl mt-16 mb-6 text-white">{questions[current].Question}</h3>
 
           <div className="grid grid-cols-2 gap-12 place-items-center mt-12 px-4 sm:px-0">
             {questions[current].options.map((option, index) => (
               <button
                 key={index}
                 onClick={() => handleAnswer(option)}
-                className="w-[150px] h-[150px] sm:w-[180px] sm:h-[180px] md:w-[400px] md:h-[200px] bg-yellow-300 hover:bg-yellow-400 text-black text-4xl sm:text-5xl md:text-6xl rounded-xl border-4 border-yellow-600 shadow-lg transition-all duration-200 flex items-center justify-center"
+                className="w-[150px] h-[150px] sm:w-[180px] sm:h-[180px] md:w-[400px] md:h-[200px] bg-yellow-600 hover:bg-yellow-400 text-black text-4xl sm:text-5xl md:text-6xl rounded-xl border-4 border-yellow-600 shadow-lg transition-all duration-200 flex items-center justify-center"
               >
                 {option}
               </button>

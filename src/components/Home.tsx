@@ -46,7 +46,7 @@ const Home = () => {
       </motion.p>
 
       <motion.img
-        src="/ds-1.jpg"
+        src="/ds-2.jpg"
         alt="Pattern game kids"
         className="w-11/12 max-w-7xl  shadow-xl mb-10 "
         initial={{ scale: 0.8, opacity: 0 }}
