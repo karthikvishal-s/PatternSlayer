@@ -5,44 +5,45 @@ type QuestionType = {
   Question: string;
   options: string[];
   answer: string;
+  hint?: string; // Added optional hint attribute
 };
 
 type Level = 'easy' | 'medium' | 'hard';
 
 const questionSets: Record<Level, QuestionType[]> = {
   easy: [
-    { Question: "2, 4, 6, ?", options: ["7", "8", "9", "10"], answer: "8" },
-    { Question: "1, 3, 5, ?", options: ["6", "7", "8", "9"], answer: "7" },
+    { Question: "2, 4, 6, ?", options: ["7", "8", "9", "10"], answer: "8", hint: "It's an even sequence." },
+    { Question: "1, 3, 5, ?", options: ["6", "7", "8", "9"], answer: "7", hint: "Odd numbers." },
     { Question: "10, 20, 30, ?", options: ["40", "50", "60", "35"], answer: "40" },
     { Question: "🔴 🟠 🟡 🟢 ?", options: ["🔵", "🟣", "⚪", "🟤"], answer: "🔵" },
     { Question: "⭐️ 🌟 💫 ✨ ?", options: ["🌠", "🌈", "🎇", "🌙"], answer: "🌠" },
-    { Question: "1, 4, 9, ?", options: ["10", "16", "12", "14"], answer: "16" },
+    { Question: "1, 4, 9, ?", options: ["10", "16", "12", "14"], answer: "16", hint: "Think about squares of numbers." },
     { Question: "👶 🧒 🧑 👨 ?", options: ["👴", "👵", "🧓", "👩"], answer: "👴" },
     { Question: "5, 10, 15, ?", options: ["20", "18", "16", "25"], answer: "20" },
     { Question: "🐣 🐥 🐤 🐓 ?", options: ["🐔", "🐦", "🪿", "🦃"], answer: "🐔" },
     { Question: "Mon, Tue, Wed, ?", options: ["Thu", "Fri", "Sat", "Sun"], answer: "Thu" },
   ],
   medium: [
-    { Question: "2, 4, 8, 16, ?", options: ["20", "24", "32", "18"], answer: "32" },
+    { Question: "2, 4, 8, 16, ?", options: ["20", "24", "32", "18"], answer: "32", hint: "Each number is double the previous one." },
     { Question: "100, 90, 80, ?", options: ["60", "70", "85", "75"], answer: "70" },
-    { Question: "A, C, E, G, ?", options: ["H", "I", "J", "I"], answer: "I" },
+    { Question: "A, C, E, G, ?", options: ["H", "I", "J", "I"], answer: "I", hint: "Skip one letter in the alphabet." },
     { Question: "1, 2, 4, 7, 11, ?", options: ["15", "16", "17", "18"], answer: "16" },
     { Question: "3, 6, 12, ?", options: ["15", "18", "21", "24"], answer: "24" },
-    { Question: "10, 20, 30, 50, ?", options: ["60", "70", "80", "90"], answer: "80" },
+    { Question: "10, 20, 30, 50, ?", options: ["60", "70", "80", "90"], answer: "80", hint: "Add the previous two numbers." },
     { Question: "Z, X, V, T, ?", options: ["R", "S", "U", "Q"], answer: "R" },
     { Question: "1, 4, 9, 16, ?", options: ["20", "25", "36", "30"], answer: "25" },
     { Question: "🐶 🐕 🐩 🐾 ?", options: ["🐺", "🦮", "🐕‍🦺", "🐾"], answer: "🐺" },
     { Question: "Mon, Wed, Fri, ?", options: ["Sat", "Sun", "Mon", "Tue"], answer: "Sun" },
   ],
   hard: [
-    { Question: "2, 3, 5, 8, 12, ?", options: ["17", "18", "19", "20"], answer: "17" },
-    { Question: "A, B, D, G, K, ?", options: ["M", "N", "O", "P"], answer: "P" },
-    { Question: "1, 11, 21, 1211, 111221, ?", options: ["312211", "1113213211", "211112", "132211"], answer: "312211" },
+    { Question: "2, 3, 5, 8, 12, ?", options: ["17", "18", "19", "20"], answer: "17", hint: "The difference between consecutive numbers increases by one." },
+    { Question: "A, B, D, G, K, ?", options: ["M", "N", "O", "P"], answer: "P", hint: "The skips in alphabet increase: 0, 1, 2, 3..." },
+    { Question: "1, 11, 21, 1211, 111221, ?", options: ["312211", "1113213211", "211112", "132211"], answer: "312211", hint: "This is a 'look-and-say' sequence." },
     { Question: "🐵, 🐒, 🦍, 🦧, ?", options: ["👨", "🦁", "🧒", "🧠"], answer: "👨" },
-    { Question: "1, 2, 6, 24, ?", options: ["60", "100", "120", "150"], answer: "120" },
+    { Question: "1, 2, 6, 24, ?", options: ["60", "100", "120", "150"], answer: "120", hint: "Multiply by increasing integers: x1, x2, x3, x4..." },
     { Question: "3, 9, 27, 81, ?", options: ["162", "243", "121", "210"], answer: "243" },
     { Question: "2, 5, 10, 17, ?", options: ["26", "27", "28", "29"], answer: "26" },
-    { Question: "F, G, I, L, P, ?", options: ["T", "U", "V", "S"], answer: "U" },
+    { Question: "F, G, I, L, P, ?", options: ["T", "U", "V", "S"], answer: "U", hint: "The letters follow a +1, +2, +3, +4 pattern in alphabetical position." },
     { Question: "🐣, 🐤, 🐥, 🐓, 🐔, ?", options: ["🥚", "🐦", "🦃", "🐧"], answer: "🥚" },
     { Question: "Sun, Earth, Mars, Jupiter, ?", options: ["Saturn", "Venus", "Neptune", "Pluto"], answer: "Saturn" },
   ],
@@ -57,6 +58,7 @@ const Activity = () => {
   const [showResult, setShowResult] = useState(false);
   const [questionCount, setQuestionCount] = useState(10);
   const [showSlider, setShowSlider] = useState(false);
+  const [showHint, setShowHint] = useState(false); // New state for hint visibility
 
   const selectLevel = (level: Level) => {
     setSelectedLevel(level);
@@ -70,6 +72,7 @@ const Activity = () => {
         .slice(0, questionCount);
       setQuestions(randomQuestions);
       setShowSlider(false);
+      setShowHint(false); // Reset hint visibility when starting a new quiz
     }
   };
 
@@ -77,11 +80,16 @@ const Activity = () => {
     const isCorrect = selected === questions[current].answer;
     setScore((s) => (isCorrect ? s + 1 : s));
     setFeedback(isCorrect ? 'Good job!' : 'Oops! Try the next one!');
+    setShowHint(false); // Hide hint after an answer is selected
     setTimeout(() => {
       setFeedback('');
       if (current + 1 < questions.length) setCurrent(current + 1);
       else setShowResult(true);
     }, 1000);
+  };
+
+  const toggleHint = () => {
+    setShowHint((prev) => !prev);
   };
 
   return (
@@ -240,6 +248,23 @@ const Activity = () => {
               </button>
             ))}
           </div>
+
+          {/* Hint Button and Display */}
+          {questions[current].hint && (current + 1) % 1 === 0 && ( // Changed to 1 for demonstration; use 30 for every 30th question
+            <div className="mt-8">
+              <button
+                onClick={toggleHint}
+                className="px-6 py-2 bg-blue-600 hover:bg-blue-500 text-white font-bold text-lg rounded-xl shadow-lg transition-all duration-300"
+              >
+                {showHint ? 'Hide Hint' : 'Show Hint'}
+              </button>
+              {showHint && (
+                <p className="mt-4 text-xl font-semibold text-gray-300">
+                  Hint: {questions[current].hint}
+                </p>
+              )}
+            </div>
+          )}
 
           {feedback && (
             <p className="mt-12 text-2xl font-semibold text-purple-600 animate-bounce">
