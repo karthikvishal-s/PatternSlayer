@@ -13,14 +13,14 @@ The app uses:
 - **Multiple-choice interactions**  
 
 The Demon Slayer theme introduces:
-- Difficulty levels named after iconic characters (**Easy – Tanjiro**, **Medium – Zenitsu**, **Hard – Inosuke**)  
+- Difficulty levels named after iconic characters (**Easy – Zenitsu**, **Medium – Gyomei**, **Hard – Yoriichi**)  
 - Pattern questions and UI styled with anime-inspired colors and backgrounds  
 - Encouraging a **fun + familiar learning environment**  
 
 ---
 
 ## ✨ Features
-- 🟢 **Easy (Tanjiro)**, 🟡 **Medium (Zenitsu)**, 🔴 **Hard (Inosuke)** difficulty levels
+- 🟢 **Easy (Zenitsu)**, 🟡 **Medium (Gyomei)**, 🔴 **Hard (Yoriichi)** difficulty levels
 - ❓ Multiple-choice questions with **4 options**
 - ⚡ Immediate feedback on answer selection
 - 📊 Score tracking system
@@ -43,42 +43,7 @@ The Demon Slayer theme introduces:
 
 ---
 
-## 💻 Concepts Used
 
-### HTML
-- Semantic elements (`<div>`, `<h1>`, `<p>`, `<button>`)
-- Emoji rendering for visual patterns
-- Accessibility attributes (`alt`, `aria-label`)
-
-### Responsive HTML
-- Meta viewport for mobile scaling
-- TailwindCSS grid & flex utilities
-- Responsive breakpoints (`sm:`, `md:`, `lg:`)
-
-### CSS (TailwindCSS)
-- Utility-first styling
-- Anime color palettes
-- Hover effects, shadows, rounded corners
-- Responsive flexbox/grid layouts
-- Transition animations
-
-### ReactJS
-- Functional components
-- State & props handling (`useState`)
-- Conditional rendering for levels
-- Routing with `react-router-dom`
-
-### JavaScript
-- Array mapping for dynamic questions
-- Random question generation
-- Score calculation logic
-
-### Event Handlers
-- `onClick` → Answer selection, navigation
-- Hover effects for anime-style buttons
-- Back & level selection navigation
-
----
 
 ## 🚀 Future Enhancements
 - 🔊 Demon Slayer-themed sound effects for right/wrong answers
