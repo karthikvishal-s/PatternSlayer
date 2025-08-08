@@ -18,7 +18,7 @@ const Home = () => {
   className="w-screen h-screen bg-cover bg-center text-white bg-no-repeat flex flex-col items-center justify-center px-4 text-center overflow-hidden relative z-0"
   style={{
     backgroundImage: "url('/ds-2.jpg')",
-    backgroundColor: 'red',
+    
   }}
 >
 
