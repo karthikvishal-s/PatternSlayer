@@ -3,13 +3,22 @@ import { motion } from 'framer-motion';
 
 
 const Home = () => {
+
+  // Using useNavigate hook from react-router-dom for navigation
+
   const navigate = useNavigate();
 
   const startGame = () => {
+
+    // Navigate to the activity page when the game starts
+
     navigate(`/activity`);
   };
 
   const LearnMore = () => {
+
+    // Navigate to the learn more page when the user wants to learn more
+
     navigate(`/learnMore`);
   };
 
@@ -23,6 +32,8 @@ const Home = () => {
 >
 
       {/* Optional: Dark overlay for better text visibility */}
+
+
       <div className="absolute inset-0  bg-opacity-70 z-0"></div>
       
 
@@ -44,6 +55,7 @@ const Home = () => {
           className="text-lg sm:text-xl text-red-200 max-w-xl mb-6 relative -top-70"
         >
           (Demon Slayer Edition)
+          
         </motion.p>
 
         <motion.p

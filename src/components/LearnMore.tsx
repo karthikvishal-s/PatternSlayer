@@ -2,9 +2,14 @@ import { motion } from "framer-motion";
 import BackButton from "./BackButton";
 
 const LearnMore = () => {
+
+
   return (
     <div className="min-h-screen bg-black text-white px-6 py-10 font-sans">
+
+
       <BackButton />
+
       <motion.h1
         initial={{ opacity: 0, y: -30 }}
         animate={{ opacity: 1, y: 0 }}
@@ -57,6 +62,7 @@ const LearnMore = () => {
         </motion.p>
 
         {/* ⚙️ Tech Stack Info */}
+
         <motion.p
           className="text-lg mb-6"
           initial={{ opacity: 0, x: 50 }}
@@ -67,6 +73,7 @@ const LearnMore = () => {
         </motion.p>
 
         {/* 👨‍💻 Creator Info */}
+
         <motion.div
           className="my-10 p-6 border border-gray-700 rounded-lg bg-gray-900"
           initial={{ opacity: 0, scale: 0.8 }}
@@ -94,8 +101,11 @@ const LearnMore = () => {
             🔗 Portfolio Site
           </a>
         </motion.div>
+        
 
-        {/* 🌟 Final Message */}
+        {/* Final Message */}
+
+
         <motion.p
           className="text-center mt-12 text-gray-400 text-lg"
           initial={{ opacity: 0 }}
