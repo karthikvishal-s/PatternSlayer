@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import BackButton from './BackButton';
 
+//Type Validation alias Prop validation .. particularly for typescript...
+
 type QuestionType = {
   Question: string;
   options: string[];
@@ -9,6 +11,8 @@ type QuestionType = {
 };
 
 type Level = 'easy' | 'medium' | 'hard';
+
+//Lists used to map....
 
 const questionSets: Record<Level, QuestionType[]> = {
   easy: [
@@ -49,6 +53,8 @@ const questionSets: Record<Level, QuestionType[]> = {
   ],
 };
 
+//Used hooks here...useState
+
 const Activity = () => {
   const [selectedLevel, setSelectedLevel] = useState<Level | null>(null);
   const [questions, setQuestions] = useState<QuestionType[]>([]);
@@ -60,10 +66,14 @@ const Activity = () => {
   const [showSlider, setShowSlider] = useState(false);
   const [showHint, setShowHint] = useState(false); // New state for hint visibility
 
+  // Function to handle level selection
+
   const selectLevel = (level: Level) => {
     setSelectedLevel(level);
     setShowSlider(true);
   };
+
+  // Function to start the quiz with selected level and question count
 
   const startQuiz = () => {
     if (selectedLevel) {
@@ -75,6 +85,8 @@ const Activity = () => {
       setShowHint(false); // Reset hint visibility when starting a new quiz
     }
   };
+
+  // Function to handle answer selection and feedback
 
   const handleAnswer = (selected: string) => {
     const isCorrect = selected === questions[current].answer;
@@ -88,15 +100,21 @@ const Activity = () => {
     }, 1000);
   };
 
+  // Function to toggle hint visibility
+
   const toggleHint = () => {
     setShowHint((prev) => !prev);
   };
+
+  // Render the component based on the current state...
 
   return (
     <div className="min-h-screen w-full font-sans bg-black">
       <div className="flex justify-between p-4">
         <BackButton />
       </div>
+
+      {/*   Conditional Rendering   */}
 
       {!selectedLevel ? (
         <div className="text-center mt-0 px-4">
@@ -154,6 +172,10 @@ const Activity = () => {
             </div>
           </div>
         </div>
+
+     //Conditonal Rendering for showSlider and showResult
+
+
       ) : showSlider ? (
         <div className="text-center text-white mt-16 px-4">
           <h2 className="text-3xl font-bold text-yellow-400 mb-6 drop-shadow-lg">How many questions?</h2>
@@ -178,6 +200,9 @@ const Activity = () => {
             Start Quiz
           </button>
         </div>
+
+      //Conditional Rendering for showResult and quiz questions
+
       ) : showResult ? (
         <div className="text-center mt-20 text-white">
           <h2 className="text-4xl font-extrabold mb-6 text-red-500 drop-shadow-lg">Your Results</h2>
@@ -265,6 +290,8 @@ const Activity = () => {
               )}
             </div>
           )}
+
+          {/* Feedback Message */}
 
           {feedback && (
             <p className="mt-12 text-2xl font-semibold text-purple-600 animate-bounce">
