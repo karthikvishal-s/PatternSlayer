@@ -22,6 +22,13 @@ const Home = () => {
     navigate(`/learnMore`);
   };
 
+  const GoodHabits = () => {
+
+    // Navigate to the good habits page when the user wants to learn about good habits
+
+    navigate(`/goodHabits`);
+  };
+
   return (
     <div
   className="w-screen h-screen bg-cover bg-center text-white bg-no-repeat flex flex-col items-center justify-center px-4 text-center overflow-hidden relative z-0"
@@ -84,6 +91,12 @@ const Home = () => {
             className="relative -top-70 bg-black bg-opacity-70 text-white px-8 py-4 rounded-full text-xl font-bold shadow-lg transform hover:scale-110 transition-all duration-300 border"
           >
             Learn More
+          </button>
+          <button
+            onClick={GoodHabits}
+            className="relative -top-70 bg-black bg-opacity-70 text-white px-8 py-4 rounded-full text-xl font-bold shadow-lg transform hover:scale-110 transition-all duration-300 border"
+          >
+            Good Habits
           </button>
         </motion.div>
       </div>

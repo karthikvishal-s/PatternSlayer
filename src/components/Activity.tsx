@@ -173,7 +173,7 @@ const Activity = () => {
           </div>
         </div>
 
-     //Conditonal Rendering for showSlider and showResult
+        //Conditonal Rendering for showSlider and showResult
 
 
       ) : showSlider ? (
@@ -201,7 +201,7 @@ const Activity = () => {
           </button>
         </div>
 
-      //Conditional Rendering for showResult and quiz questions
+        //Conditional Rendering for showResult and quiz questions
 
       ) : showResult ? (
         <div className="text-center mt-20 text-white">
